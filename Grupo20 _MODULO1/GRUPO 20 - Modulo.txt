@@ -1,0 +1,213 @@
+GRUPO - 20
+PAULA ANDREA GONZALEZ MONTOYA
+ANAMARÍA ALEJANDRA LÓPEZ GARCÍA
+
+21 / OCT / 2025
+
+OBJETIVOS: 
+
+• Diagrama casos de usos con su respectiva documentación (tabla). 
+• Modelado de BD: diagrama MER y SQL 
+
+Tabla documentación de casos de usos
+
+Código  
+Nombre 
+Descripción  
+Actor 
+Pre – condición  
+Post - condición
+
+______________________________________________________________________________________
+
+Nuestro objetivo es: PERMITIR ADMINISTRAR DE MANERA EFICIENTE LA BOLETERÍA Y 
+			LA PROMOCIÓN DE LOS EVENTOS REALIZADOS EN TODO EL PAÍS  
+
+OBJETIVO: El objetivo es diseñar una solución web que facilite la interacción entre los diferentes tipos de 
+	usuarios y asegure una experiencia de compra y gestión fluida, confiable y segura, 
+	promoviendo la participación en los eventos culturales del país. 
+
+______________________________________________________________________________________
+
+|Tabla documentación de casos de usos
+
+Código  CU_M1_1
+Nombre: VENTA DE BOLETAS
+Descripción: PERMITIR ADMINISTRAR DE MANERA EFICIENTE LA BOLETERÍA 
+Actor: VISITANTES
+Pre – condición: EL ASISTENTE DEBE ESTAR REGISTRADO E INICIAR SESIÓN PARA 
+		COMPRAR LA BOLETA.  
+Post - condición: °COMPRÓ LA BOLETA, 
+		°SE REGISTRÓ LA VENTA, 
+		°SE LE ASIGNÓ UNA LOCALIDAD,
+		°SE LE ASIGNÓ UN HORARIO
+
+
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código: CU_M1_2 
+Nombre: CONTROL DE ASISTENCIA  
+Descripción: CONTROL DE LA ASISTENCIA DE QUIENES VEN EL CONCIERTO Y ARTISTAS ETC.
+		 
+Actor: °ASISTENTES,
+	°ARTISTAS,
+	°EQUIPO DE MANTENIMIENTO(LOGISTICA), 
+Pre – condición:°SE REGISTRAN,
+		°TODOS DEBEN ESTAR REGISTRADOS EN UNA BASE DE DATOS, 
+		°INICIAN SESIÓN,
+		°LE PIDE CONFIRMAR ASISTENCIA(MODAL)   
+Post - condición: SE LE PERMITIRÁ LA ENTRADA, SI O SI, CONFIRMAN LA ASISTENCIA.
+
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código:  CU_M1_3    
+Nombre: PUBLICACIÓN DE LA PROGRAMACIÓN (HORARIO) 
+		°EL SISTEMA DEBE PERMITIR QUE UN ADMINISTRADOR PUEDA REGISTRAR LOS EVENTOS PROGRAMADOS 
+Descripción: 	°EL ADMINISTRADOR PUEDE __REGISTRAR__ LOS SIGUIENTES EVENTOS: 
+		°DEBE INDICAR SU NOMBRE,DESCRIPCIÓN, FECHAS, HORARIOS Y LUGAR DE REALIZACIÓN DEL EVENTO. 
+		°(ADEMÁS, DEBE PODER __CREAR__ LAS LOCALIDADES DISPONIBLES(vip, general, preferencial)
+		°DEFINIR PARA CADA UNA EL VALOR Y LA CANTIDAD DE BOLETAS ASIGNADAS)
+		°(__REGISTRAR__ ARTISTAS, INDICANDO SU GENERO MUSICAL Y CIUDAD DE ORIEN, (__ASOCIAR__ A LOS EVENTOS)--> EVITANDO 
+		QUE UN MISMO ARTISTA SEA PROGRAMADO EN DOS EVENTOS QUE COINCIDAN EN EL MISMO HORARIO)  
+Actor: ADMINISTRADOR 
+Pre – condición: °EL ADMINISTRADOR DEBE ESTAR REGISTRADO EN EL SISTEMA,
+		 °DEBE INICIAR SESIÓN PARA CREAR(LOCALIDADES), 
+			°REGISTRAR(ARTISTAS, EVENTOS), 
+			°DEFINIR(VALOR, CANTIDAD "BOLETA").  
+Post - condición:°EL ADMINISTRADOR DEBE CREAR(LOCALIDADES),
+			°REGISTRAR(ARTISTAS, EVENTOS), 
+			°DEFINIR(VALOR, CANTIDAD "BOLETA"). __SATISFACTORIAMENTE__
+		°EVITANDO QUE UN MISMO ARTISTA SEA PROGRAMADO EN DOS EVENTOS QUE COINCIDAN EN EL MISMO HORARIO.  
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código :   CU_M1_4 
+Nombre: LA COORDINACIÓN DE ARTISTA INVITADOS 
+Descripción : °ORGANIZAR A LOS ARTISTAS EN SUS RESPECTIVAS HABITACIONES, CAMERINO. 
+		°EL SISTEMA DEBE TENER EL TOTAL DE LAS HABITACIONES, CAMERINOS, DISPONIBLES.
+		°EL SISTEMA DEBE TENER LOS HORARIOS DEL EVENTO Y QUE ARTISTA SE PRESENTA. 
+Actor: ARTISTAS 
+Pre – condición: °DEBE HABER UNA BASE DE DATOS CON LOS ARTISTAS QUE SE PRESENTAN EN EL EVENTO. 
+		   
+Post - condición: °LA ORGANIZACIÓN FUE SATISFACTORIA Y NO SE PRESENTÓ NINGÚN CONTRATIEMPO EN LOS EVENTOS.
+
+______________________________________________________________________________________
+
+
+
+Tabla documentación de casos de usos
+
+Código: CU_M1_5   
+Nombre: PERMITIR DE MANERA EFICIENTE LA PROMOCIÓN DE LOS EVENTOS REALIZADOS EN TODO EL PAÍS 
+Descripción: °CREAR ESTRATEGIAS DE MARKETING DIGITAL, 
+		°FLAYER,
+		°INVESTIGACIÓN DE CAMPO(CONOCER AL PÚBLICO).   
+Actor: PÚBLICO(VISITANTES) 
+Pre – condición: TENER UNA INVESTIGACIÓN DE CAMPO CON LOS DATOS(GUSTO MÚSICAL, ACEPTACIÓN DEL PÚBLICO:"ARTISTA")
+  
+Post - condición. HACER PUBLICIDAD PARA DAR A CONOCER LOS EVENTOS PROGRAMADOS, EN LA CIUDAD O PAÍS DE DESTINO. 
+
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código: CU_M1_6  
+Nombre: LOS VISITANTES PUEDEN CONSULTAR POR EL PORTAL LOS EVENTOS DISPONIBLES. 
+Descripción:  LOS EVENTOS DISPONIBLES SE PUEDEN FILTRAR:
+		°MUNICIPIO
+		°DEPARTAMENTO
+		°PAÍS
+		°FECHA
+		°AL SELECIONAR UN EVENTO EL VISITANTE PODRÁ VISUALIZAR INFORMACIÓN DETALLADA SOBRE EL:
+		° LUGAR,
+		°ARTISTAS PARTICIPANTES,
+		°LA DISPONIBILIDAD DE BOLETAS. 
+Actor:  VISITANTES
+Pre – condición: °CUANDO EL VISITANTE ENTRA AL PORTAL PODRÁ VISUALIZAR UN FLAYER, CON EL ARTISTA DEL PROXIMO EVENTO.
+		°PERO, PARA VER MÁS INFORMACIÓN DE LA PROGRAMACIÓN DEBE ESTAR REGISTRADO E INICIAR SESIÓN.	
+Post - condición: °SI EL VISITANTE INICIO SESION, TIENE ACCESO A TODA LA INFORMACIÓN DE LOS EVENTOS. 
+		°PROGRAMACIÓN,
+		°ARTISTAS,
+		°SOLO EVENTOS DISPONIBLES
+
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código: CU_M1_7   
+Nombre: EL USUARIO DEBE REGISTRARSE PRIMERO PARA ADQUIRIR BOLETAS. 
+Descripción: °EL USUARIO SE REGISTRA COMO COMPRADOR, INICIA SESIÓN. 
+		° DATOS PERSONALES(NOMBRES, APELLIDOS, TIPO DOC., DOC, TELÉFONO, EMAIL, CONTRASEÑA)
+		°UNA VEZ AUTENTICADO EL COMPRADOR PODRÁ INICIAR SESIÓN. 
+		°Seleccionar un evento, 
+		°elegir la localidad deseada, 
+		°indicar la cantidad de boletas (con un máximo permitido por transacción) y 
+		°realizar el proceso de compra, 
+		°ingresando un método de pago de prueba.
+Actor: USUARIO(VISITANTE) 
+Pre – condición: DEBE ESTAR REGISTRADO E INICIAR SESION  
+Post - condición: REALIZAR EL PROCESO DE COMPRA SATISFACTORIAMENTE / EXITOSAMENTE.
+		
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código: CU_M1_8  
+Nombre : VALIDAR LA DISPONIBILIDAD DE BOLETAS 
+Descripción:   °SÍ HAY BOLETAS DISPONIBLES SE REALIZA LA VENTA
+		°SÍ SE REALIZÓ UNA VENTA, SE ACTUALIZA AUTOMATICAMENTE LA CANTIDAD RESTANTE.
+Actor: SISTEMA 
+Pre – condición: °VALIDAR EN TIEMPO REAL LA CANTIDAD DISPONIBLE DE BOLETAS
+		   
+Post - condición:°SE RESTA LA CANTIDAD DE BOLETAS COMPRADAS POR EL USUARIO, A LA CANTIDAD
+		ACTUALIZADA DEL SISTEMA.
+
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código:  CU_M1_9 
+Nombre: CONSULTAR EL HISTORIAL DE COMPRAS
+Descripción:  °El comprador podrá consultar su historial de compras, 
+		°donde visualizará la información de los eventos adquiridos, 
+		°las fechas, 
+		°la cantidad de boletas, 
+		°el valor total y 
+		°el estado de la transacción.  
+Actor: USUARIO(VISITANTE, COMPRADOR)
+Pre – condición: °EL COMPRADOR DEBE ESTAR REGISTRADO E INICIAR SESIÓN 
+		°TENDRA DOS BOTONES (CANCELAR, COMPRAR)
+		°LA CANTIDAD DE BOLETAS SE PODRÁ MODIFICAR(AGREGAR O QUITAR)
+		
+Post - condición: °EL USUARIO(COMPRADOR), COMPRÓ LAS BOLETAS SATISFATORIAMENTE.
+
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código:  CU_M1_10  
+Nombre: ACTUALIZAR LOS DATOS DEL USUARIO 
+Descripción: °EL SISTEMA LE DEBE PERMITIR ACTUALIZAR LOS DATOS AL USUARIO(ADMINISTRADOR, VISITANTE, COMPRADOR)  
+Actor: ADMINISTRADOR, VISITANTE, COMPRADOR 
+Pre – condición: °EL USUARIO DEBE ESTAR REGISTRADO.
+		°EL USUARIO DEBE INICIAR SESIÓN 
+Post - condición: °EL USARIO ACTUALIZA LOS DATOS SATISFACTORIAMENTE
+
+______________________________________________________________________________________
+
+Tabla documentación de casos de usos
+
+Código: CU_M1_11  
+Nombre: EL USUARIO PUEDE CERRAR SESIÓN 
+Descripción: EL USUARIO PODRÁ CERRAR SESIÓN ESPUES DE INGRESAR AL PORTAL  
+Actor : USUARIO
+Pre – condición : EL INICIO SESIÓN 
+Post - condición: EL USUARIO PUEDE CERRAR SESIÓN ÉXITOSAMENTE.
+
+______________________________________________________________________________________
+

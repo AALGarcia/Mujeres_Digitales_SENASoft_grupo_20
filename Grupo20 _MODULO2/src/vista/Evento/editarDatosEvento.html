@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar evento</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+   
+<div>
+        <h1>Editar Evento</h1>
+<form action="/action_page.php" >
+
+    <!--En input código, se genera automaticamente desde la base de datos-->
+    <div>
+        <label for="fname">Código:</label><br>
+        <input type="number" id="codigo" name="codigo" value="El código se genera automaticamente"><br>
+    </div>
+
+<!--El administrador crea e ingresa el nombre del evento-->
+    <div>
+        <label for="name">Nombre del evento:</label><br>
+        <input type="text" id="name" name="name" value="Festividad honor a la bandera"><br>
+    </div>
+    <!---->
+    <div>
+        <label for="descripcion">Descripión:</label><br>
+        <input type="textTarea" id="descripcion" name="descripcion" value=""><br><br>
+    </div>
+    <!---->
+
+    <div>
+        <label for="fechaEvento">Feha del evento:</label><br>
+        <input type="date" id="fechaEvento" name="fechaEvento" value=""><br>
+    </div>
+    <!---->
+
+    <div>
+        <label for="hora_inicio">Fecha inicio:</label><br>
+        <input type="date" id="hora_inicio" name="hora_inicio" value=""><br>
+    </div>
+    <!---->
+
+    <div>
+        <label for="hora_fin">Feha fin:</label><br>
+        <input type="date" id="hora_fin" name="hora_fin" value=""><br>
+    </div>
+        <!---->
+
+    <div>
+        <label for="localidades">Localidad</label><br>
+        <input type="text" id="localidades" name="localidades" value="Festividad honor a la bandera"><br>
+    </div>
+    <!---->
+
+     <div>
+        <label for="valorBoleta">Valor boleta</label><br>
+        <input type="number" id="valorBoleta" name="valorBoleta" value="Festividad honor a la bandera"><br>
+    </div>
+        <!---->
+
+     <div>
+        <label for="cantidadBoletas">Cantidad de boletas disponibles</label><br>
+        <input type="number" id="cantidadBoletas" name="cantidadBoletas" value="Festividad honor a la bandera"><br>
+    </div>
+        <!---->
+
+     <div>
+        <label for="acciones">Acciones</label><br>
+        <input type="text" id="acciones" name="acciones" value="Festividad honor a la bandera"><br>
+    </div>
+        <!---->
+
+   <div>
+        <div>
+            <input type="submit" value="Editar">
+        </div>
+        <div>
+            <input type="submit" action="DELETE FROM eventos WHERE id_eventos=id_eventos"; value="Eliminar">
+        </div>
+    </div>
+</form> 
+</div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
