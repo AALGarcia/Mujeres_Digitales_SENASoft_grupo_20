@@ -1,0 +1,21 @@
+.card {
+  transition: transform 0.3s;
+  margin-bottom: 20px;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.event-date {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: #495057;
+}
+.search-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}

@@ -1,77 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registrar artista</title>
+    <title>Gestión de Eventos</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   <link rel="stylesheet" href="">
   </head>
   <body>
-    <!--h4>Objetivo</h4>
-    <p>El sistema debe permitir registrar los eventos, ingresando para cada evento su 
-código (auto incrementable), nombre, descripción, fecha y hora de inicio, fecha y 
-hora de fin </p-->
-
-<php
-SELECT id_eventos, nombre, descripcion, fecha, hora_inicio, hora_fin
-FROM eventos
-INNER JOIN eventos ON eventos.id_eventos= Categories.CategoryID;
-
-?>
-
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = ("John", "Highway 21")
-mycursor.execute(sql, val)
-
-
-
-<div>
-        <h1>Registrar un nuevo Evento</h1>
-  <form action="POST" >
-
-    <!--En input código, se genera automaticamente desde la base de datos-->
-    <div>
-        <label for="id_art">Código:</label><br>
-        <input type="number" id="id_art" name="id_art" value="El código se genera automaticamente"><br>
+    <div class="container mt-4">
+      <h1 class="text-center mb-4">Sistema de Gestión de Eventos</h1>
+      
+      <!-- _________ Pestañas de navegación para el CRUD _________________-->
+      <ul class="nav nav-tabs" id="eventTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="crear-tab" data-bs-toggle="tab" data-bs-target="#crear" type="button" role="tab" aria-controls="crear" aria-selected="true">
+            <i class="bi bi-plus-circle"></i> Crear Evento
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="listar-tab" data-bs-toggle="tab" data-bs-target="#listar" type="button" role="tab" aria-controls="listar" aria-selected="false">
+            <i class="bi bi-list-ul"></i> Listar Eventos
+          </button>
+        </li>
+      </ul>
+      
+      <!-- Contenido de las pestañas -->
+      <div class="tab-content" id="eventTabsContent">
+        <!-- Pestaña de Crear Evento -->
+        <div class="tab-pane fade show active form-container" id="crear" role="tabpanel" aria-labelledby="crear-tab">
+          <h3 class="mb-3">Registrar un nuevo Evento</h3>
+          <form action="../../controlador/registrarEvento.py" method="post" id="crearEventoForm" class="needs-validation" novalidate>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="codigo" class="form-label">Código:</label>
+                <input type="text" class="form-control" id="codigo" name="codigo" value="Autogenerado" disabled>
+                <div class="form-text">El código se genera automáticamente</div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre del evento:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                <div class="invalid-feedback">Por favor ingrese un nombre para el evento</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción:</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+              <div class="invalid-feedback">Por favor ingrese una descripción</div>
+            </div>
+            
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="fechaEvento" class="form-label">Fecha del evento:</label>
+                <input type="date" class="form-control" id="fechaEvento" name="fechaEvento" required>
+                <div class="invalid-feedback">Por favor seleccione una fecha</div>
+              </div>
+              
+              <div class="col-md-4">
+                <label for="hora_inicio" class="form-label">Hora de inicio:</label>
+                <input type="time" class="form-control" id="hora_inicio" name="hora_inicio" required>
+                <div class="invalid-feedback">Por favor seleccione una hora de inicio</div>
+              </div>
+              
+              <div class="col-md-4">
+                <label for="hora_fin" class="form-label">Hora de fin:</label>
+                <input type="time" class="form-control" id="hora_fin" name="hora_fin" required>
+                <div class="invalid-feedback">Por favor seleccione una hora de fin</div>
+              </div>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="reset" class="btn btn-secondary me-md-2">Limpiar</button>
+              <button type="submit" class="btn btn-primary">Guardar Evento</button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Pestaña de Listar Eventos -->
+        <div class="tab-pane fade form-container" id="listar" role="tabpanel" aria-labelledby="listar-tab">
+          <h3 class="mb-3">Lista de Eventos</h3>
+          <div class="table-responsive">
+            <table class="table table-striped table-hover" id="tablaEventos">
+              <thead class="table-dark">
+                <tr>
+                  <th>Código</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Fecha</th>
+                  <th>Hora Inicio</th>
+                  <th>Hora Fin</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="cuerpoTablaEventos">
+                <!-- Los datos se cargarán dinámicamente con JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal para Editar Evento -->
+      <div class="modal fade" id="editarEventoModal" tabindex="-1" aria-labelledby="editarEventoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editarEventoModalLabel">Editar Evento</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="editarEventoForm" class="needs-validation" novalidate>
+                <input type="hidden" id="edit_id" name="edit_id">
+                
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="edit_codigo" class="form-label">Código:</label>
+                    <input type="text" class="form-control" id="edit_codigo" name="edit_codigo" disabled>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="edit_nombre" class="form-label">Nombre del evento:</label>
+                    <input type="text" class="form-control" id="edit_nombre" name="edit_nombre" required>
+                    <div class="invalid-feedback">Por favor ingrese un nombre para el evento</div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="edit_descripcion" class="form-label">Descripción:</label>
+                  <textarea class="form-control" id="edit_descripcion" name="edit_descripcion" rows="3" required></textarea>
+                  <div class="invalid-feedback">Por favor ingrese una descripción</div>
+                </div>
+                
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <label for="edit_fechaEvento" class="form-label">Fecha del evento:</label>
+                    <input type="date" class="form-control" id="edit_fechaEvento" name="edit_fechaEvento" required>
+                    <div class="invalid-feedback">Por favor seleccione una fecha</div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <label for="edit_hora_inicio" class="form-label">Hora de inicio:</label>
+                    <input type="time" class="form-control" id="edit_hora_inicio" name="edit_hora_inicio" required>
+                    <div class="invalid-feedback">Por favor seleccione una hora de inicio</div>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <label for="edit_hora_fin" class="form-label">Hora de fin:</label>
+                    <input type="time" class="form-control" id="edit_hora_fin" name="edit_hora_fin" required>
+                    <div class="invalid-feedback">Por favor seleccione una hora de fin</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" id="guardarEdicionBtn">Guardar Cambios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal de Confirmación para Eliminar -->
+      <div class="modal fade" id="eliminarEventoModal" tabindex="-1" aria-labelledby="eliminarEventoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="eliminarEventoModalLabel">Confirmar Eliminación</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>¿Está seguro que desea eliminar el evento <span id="nombreEventoEliminar" class="fw-bold"></span>?</p>
+              <p class="text-danger">Esta acción no se puede deshacer.</p>
+              <input type="hidden" id="idEventoEliminar">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" id="confirmarEliminarBtn">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-<!--El administrador crea e ingresa el nombre del evento-->
-    <div>
-        <label for="name_art">Nombre</label><br>
-        <input type="text" id="name_art" name="name_art" value="Festividad honor a la bandera"><br>
-    </div>
-    <div>
-        <label for="lname">Apellidos</label><br>
-        <input type="text" id="lname" name="lname" value=""><br><br>
-    </div>
-
-    <div>
-        <label for="fname">Genero musical</label><br>
-        <input type="text" id="fechaEvento" name="fechaEvento" value=""><br>
-    </div>
-
-    <div>
-        <label for="hora_inicio">Ciudad de nacimiento</label><br>
-        <input type="text" id="hora_inicio" name="hora_inicio" value=""><br>
-    </div>
-
-    
-    
-    <div>
-        <input type="submit" action="INSERT INTO table_name (column1, column2, column3, ...)
-VALUES (value1, value2, value3, ...);" value="Crear">
-    </div>
-</form> 
-</div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+      crossorigin="anonymous"></script>
+    <script src="/controlador/evento.js"></script>
   </body>
 </html>

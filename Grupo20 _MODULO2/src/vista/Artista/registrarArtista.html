@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar artista</title>
+  </head>
+  <body>
+    <!--p>El sistema debe contar con un módulo de artistas en el cual se registre un código, 
+nombres y apellidos, genero de música del artista y ciudad natal de artista. </p-->
+
+    <form action="/src/modelo/registrarArtista.py" methods="POST">
+      <!--En input código, se genera automaticamente desde la base de datos-->
+      <div>
+        <label for="codigo">Código:</label><br />
+        <input
+          type="number"
+          id="codigo"
+          name="codigo"
+          value="El código se genera automaticamente"
+        /><br />
+      </div>
+
+      <!--El administrador crea e ingresa el nombre del artista-->
+      <div>
+        <label for="fname">Nombres:</label><br />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="Juan"
+        /><br />
+      </div>
+      <div>
+        <label for="lname">Apellidos:</label><br />
+        <input
+          type="text"
+          id="descripcion"
+          name="descripcion"
+          value=""
+        /><br /><br />
+      </div>
+
+      <div>
+        <label for="genero">Género de música:</label><br />
+        <input type="text" id="genero" name="genero" value="" /><br />
+      </div>
+
+      <div>
+        <label for="hora_inicio">Ciudad natal:</label><br />
+        <input type="text" id="ciudadNatal" name="ciudadNatal" value="" /><br />
+      </div>
+
+      
+    </form>
+  </body>
+</html>

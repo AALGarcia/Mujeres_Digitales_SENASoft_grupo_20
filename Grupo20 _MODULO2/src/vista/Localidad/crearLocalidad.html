@@ -10,19 +10,18 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../../main/static/crearLocalidad.css">
+    
   </head>
   <body>
     <!--h4>Objetivo</h4>
-    <p>El sistema debe permitir registrar los eventos, ingresando para cada evento su 
-código (auto incrementable), nombre, descripción, fecha y hora de inicio, fecha y 
-hora de fin </p-->
-
-
+    <p> El sistema debe permitir crear localidades asignando un código de localidad y un 
+nombre de localidad. </p-->
 
 
 <div>
-        <h1>Registrar un nuevo Evento</h1>
-  <form action="POST" >
+        <h1>Crear Localidad</h1>
+  <form action="/src/controlador/rearLocalidadControlador.py" method="POST" >
 
     <div>
         <label for="codigo_localidad">Código localidad</label><br>
@@ -30,13 +29,12 @@ hora de fin </p-->
     </div>
 
       <div>
-        <label for="name_localidad">Nombre del evento:</label><br>
+        <label for="name_localidad">Nombre de localidad:</label><br>
         <input type="text" id="name_localidad" name="name_localidad" value="Festividad honor a la bandera"><br>
     </div>
 
     <div>
-        <input type="submit" action="INSERT INTO table_name (column1, column2, column3, ...)
-VALUES (value1, value2, value3, ...);" value="Crear">
+        <input type="submit" action="/localidad/crear" value="Crear">
     </div>
 </form> 
 </div>

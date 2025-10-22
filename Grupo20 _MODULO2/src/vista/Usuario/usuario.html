@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usuario - Registro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container py-4">
+    <h1 class="mb-3">Registro de Usuario</h1>
+    <p class="text-muted mb-4">Complete los 7 campos para crear su perfil.</p>
+
+    <form id="usuarioForm" class="row g-3">
+      <!-- 1. Nombre -->
+      <div class="col-md-6">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" required />
+      </div>
+      
+      <!-- 2. Apellido -->
+      <div class="col-md-6">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" id="apellido" name="apellido" class="form-control" required />
+      </div>
+
+      <!-- 3. Usuario -->
+      <div class="col-md-6">
+        <label for="usuario" class="form-label">Usuario</label>
+        <input type="text" id="usuario" name="usuario" class="form-control" required />
+      </div>
+
+      <!-- 4. Correo electrónico -->
+      <div class="col-md-6">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" id="email" name="email" class="form-control" required />
+      </div>
+
+      <!-- 5. Teléfono -->
+      <div class="col-md-6">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" class="form-control" />
+      </div>
+
+      <!-- 6. Departamento -->
+      <div class="col-md-6">
+        <label for="departamento" class="form-label">Departamento</label>
+        <input type="text" id="departamento" name="departamento" class="form-control" />
+      </div>
+
+      <!-- 7. Municipio -->
+      <div class="col-md-6">
+        <label for="municipio" class="form-label">Municipio</label>
+        <input type="text" id="municipio" name="municipio" class="form-control" />
+      </div>
+
+      <div class="col-12 mt-3">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="/dashboard" class="btn btn-secondary ms-2">Cancelar</a>
+      </div>
+    </form>
+
+    <div id="alerta" class="alert mt-3 d-none" role="alert"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('usuarioForm');
+    const alerta = document.getElementById('alerta');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        // Enviar a un endpoint (ajustar ruta cuando exista backend)
+        // const res = await fetch('/api/usuarios', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        // const json = await res.json();
+
+        console.log('Datos del usuario:', data);
+        alerta.className = 'alert alert-success';
+        alerta.textContent = 'Usuario preparado para guardar (pendiente integración backend).';
+        alerta.classList.remove('d-none');
+      } catch (err) {
+        alerta.className = 'alert alert-danger';
+        alerta.textContent = 'Error al procesar el usuario.';
+        alerta.classList.remove('d-none');
+      }
+    });
+  </script>
+</body>
+</html>

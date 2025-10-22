@@ -1,65 +1,195 @@
 <!DOCTYPE html>
-    <!--GRUPO 20 - MODULO 2
+<!--
+    GRUPO 20 - MODULO 2
     PAULA ANDREA GONZALEZ MONTOYA
     ANAMARÍA ALEJANDRA LÓPEZ GARCÍA
-    -->
-
-
-<html lang="en">
+-->
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
+    <title>Sistema de Gestión de Eventos - Festividades</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/Grupo20 _MODULO2/src/main/static/index.css">
 </head>
 <body>
-<!--h4>Objetivo</h4>
-    <p>En Colombia, cada uno de sus municipios lleva a cabo las respectivas ferias, y en estos eventos 
-se manejan actividades donde se dan a conocer los aspectos más representativos de la región, 
-es por ello que se hace necesario construir un aplicativo que permita gestionar la venta de 
-boletas y publicación de eventos de cada una de estas actividades.  
-El objetivo del presente módulo es desarrollar una aplicación tipo web que permita gestionar 
-la venta de boletería online y las ubicaciones en cada una de las actividades a desarrollar, así 
-como el manejo de boletería para los eventos que lo requieran. </p-->
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"> 
+                <i class=""></i> Festividades 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class=""></i> Inicio 
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class=""></i> Eventos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/src/vista/Evento/crearEvento.html">Gestionar Eventos</a></li>
+                            <li><a class="dropdown-item" href="/src/vista/Evento/consultarEventos.html">Consultar Eventos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/src/vista/Artista/registrarArtista.html">
+                            <i class=""></i> Artistas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/src/vista/Localidad/registrarLocalidad.html">
+                            <i class=""></i> Localidades
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Gestion de eventos</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-        <a class="nav-link" href="#">Artistas</a>
-        <a class="nav-link" href="#">Eventos</a>
-        <a class="nav-link disabled" aria-disabled="true">Resgistrarse</a>
-      </div>
-    </div>
-  </div>
-</nav>
+    <!-- Sección Hero -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Sistema de Gestión de Eventos</h1>
+            <p class="lead mb-5">Administra fácilmente los eventos, artistas y localidades para las festividades de tu municipio</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="/src/vista/Evento/crearEvento.html" class="btn btn-primary btn-lg px-4 gap-3">
+                    <i class=""></i> Crear Evento
+                </a>
+                <a href="/src/vista/Evento/consultarEventos.html" class="btn btn-outline-light btn-lg px-4">
+                    <i class=""></i> Consultar Eventos
+                </a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Características principales -->
+    <section class="container mb-5">
+        <h2 class="text-center mb-5">Gestiona todos los aspectos de tus eventos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-calendar-plus"></i>
+                        </div>
+                        <h3 class="card-title h5 mb-3">Gestión de Eventos</h3>
+                        <p class="card-text">Crea, edita y elimina eventos. Gestiona fechas, horarios y toda la información relacionada.</p>
+                        <a href="/src/vista/Evento/crearEvento.html" class="btn btn-sm btn-primary mt-3">
+                            Ir a Eventos <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-person-video3"></i>
+                        </div>
+                        <h3 class="card-title h5 mb-3">Gestión de Artistas</h3>
+                        <p class="card-text">Administra los artistas que participarán en tus eventos. Añade información y asígnalos a eventos.</p>
+                        <a href="/src/vista/Artista/registrarArtista.html" class="btn btn-sm btn-primary mt-3">
+                            Ir a Artistas <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card h-100 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h3 class="card-title h5 mb-3">Gestión de Localidades</h3>
+                        <p class="card-text">Configura las localidades y ubicaciones para tus eventos. Gestiona capacidad y precios.</p>
+                        <a href="/src/vista/Localidad/registrarLocalidad.html" class="btn btn-sm btn-primary mt-3">
+                            Ir a Localidades <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<br>
-<br>
-<br>
-<h4>Indice</h4>
-<ul>
-<li><a href="/src/vista/Evento/registrarEvento.html">Pagina de registrar Eventos</a></li>
-<li> <a href="/src/vista/Evento/editarDatosEvento.html">Pagina de editar Eventos</a></li>
-<li> <a href="/src/vista/Evento/verDatosEvento.html">Pagina de ver Eventos</a></li>
-<li><a href="/src/vista/Localidad/registrarLocalidad.html">Pagina registrar Localidad</a></li>
-</ul>
- 
-<script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Acceso rápido -->
+    <section class="container mb-5">
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="h4 mb-3">Acceso Rápido</h3>
+                        <div class="list-group">
+                            <a href="/src/vista/Evento/crearEvento.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Gestionar Eventos
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                            <a href="/src/vista/Evento/consultarEventos.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Consultar Eventos
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                            <a href="/src/vista/Artista/registrarArtista.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Gestionar Artistas
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                            <a href="/src/vista/Localidad/registrarLocalidad.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                Gestionar Localidades
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="h4 mb-3">Acerca del Sistema</h3>
+                        <p>Este sistema permite gestionar la venta de boletas y publicación de eventos para las festividades de los municipios de Colombia.</p>
+                        <p>Facilita la administración de actividades donde se dan a conocer los aspectos más representativos de cada región.</p>
+                        <p class="mb-0">Desarrollado por el Grupo 20 - Módulo 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h5>Sistema de Gestión de Eventos</h5>
+                    <p class="text-muted">Desarrollado por Grupo 20 - Módulo 2</p>
+                    <p class="text-muted mb-0">PAULA ANDREA GONZALEZ MONTOYA<br>ANAMARÍA ALEJANDRA LÓPEZ GARCÍA</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-white-50">Inicio</a></li>
+                        <li><a href="/src/vista/Evento/crearEvento.html" class="text-decoration-none text-white-50">Eventos</a></li>
+                        <li><a href="/src/vista/Artista/registrarArtista.html" class="text-decoration-none text-white-50">Artistas</a></li>
+                        <li><a href="/src/vista/Localidad/registrarLocalidad.html" class="text-decoration-none text-white-50">Localidades</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center">
+                <p class="text-muted mb-0">&copy; 2025 Sistema de Gestión de Eventos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 </html>
