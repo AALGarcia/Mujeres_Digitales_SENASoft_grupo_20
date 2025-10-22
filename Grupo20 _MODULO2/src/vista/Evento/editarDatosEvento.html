@@ -13,13 +13,21 @@
   </head>
   <body>
    
+<php
+SELECT id_eventos, nombre, descripcion, fecha, hora_inicio, hora_fin, codigo_localidad, name_localidad
+FROM eventos, localidad
+INNER JOIN localidad ON eventos.id_localidad= Categories.CategoryID;
+
+?>
+
+
 <div>
         <h1>Editar Evento</h1>
 <form action="/action_page.php" >
 
     <!--En input código, se genera automaticamente desde la base de datos-->
     <div>
-        <label for="fname">Código:</label><br>
+        <label for="codigo">Código:</label><br>
         <input type="number" id="codigo" name="codigo" value="El código se genera automaticamente"><br>
     </div>
 
