@@ -10,9 +10,9 @@ from modelo.login import autenticar_usuario, verificar_acceso
 # Función para manejar el inicio de sesión
 def login():
     if request.method == 'GET':
-        # Si ya hay una sesión activa, redirigir al dashboard
+        # Si ya hay una sesión activa, redirigir 
         if 'usuario_id' in session:
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('index'))
         
         # Mostrar la página de login
         return render_template('Login/login.html')
@@ -73,12 +73,16 @@ def requiere_acceso(modulo):
         return decorated_function
     return decorator
 
-# Función para mostrar el dashboard después del login
-def dashboard():
+# Función para mostrar el index después del login
+def index():
+    #Verificación de existencia de la sesión
+    nombre = session.get('nombre', '')
+    apellido = session.get('apellido', '')
+
     # Verificar si el usuario está autenticado
     if 'usuario_id' not in session:
         return redirect(url_for('login'))
     
-    # Mostrar el dashboard
-    return render_template('dashboard.html', 
-                          usuario=session.get('nombre', '') + ' ' + session.get('apellido', ''))
+    # Mostrar el index
+    return render_template('index.html', 
+                        usuario=session.get('nombre', '') + ' ' + session.get('apellido', ''))

@@ -46,7 +46,7 @@ class crearEventos:
             conexion = obtener_conexion()  # Obtener una nueva conexión
             mi_cursor = conexion.cursor()  # Crear un cursor a partir de la conexión
 
-            # Generar código automático (formato: EVT-XXXX)
+            # Generar código automático 
             sql = "SELECT MAX(CAST(SUBSTRING(codigo, 5) AS UNSIGNED)) as max_codigo FROM eventos"
             mi_cursor.execute(sql)
             result = mi_cursor.fetchone()

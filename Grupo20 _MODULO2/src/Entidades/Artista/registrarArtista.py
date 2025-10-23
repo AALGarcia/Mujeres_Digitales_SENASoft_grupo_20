@@ -32,7 +32,7 @@ class Artistas:
     def agregar(self, nombre, apellido, genero, ciudad):
         """Agrega un nuevo artista"""       
         try:
-            # Generar código automático (formato: ART-XXXX)
+            # Generar código automático 
             sql = "SELECT MAX(CAST(SUBSTRING(codigo, 5) AS UNSIGNED)) as max_codigo FROM artistas"
             mi_cursor.execute(sql)
             result = mi_cursor.fetchone()

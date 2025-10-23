@@ -146,7 +146,7 @@ def obtener_eventos_artista(id_artista):
         # Obtener eventos asociados al artista
         cursor.execute("""
             SELECT e.`id eventos`, e.nombre, e.descripción, e.fecha, 
-                   e.hora_inicio, e.hora_fin, ae.fecha_asociacion
+                e.hora_inicio, e.hora_fin, ae.fecha_asociacion
             FROM eventos e
             JOIN artistas_eventos ae ON e.`id eventos` = ae.id_evento
             WHERE ae.id_artista = %s
