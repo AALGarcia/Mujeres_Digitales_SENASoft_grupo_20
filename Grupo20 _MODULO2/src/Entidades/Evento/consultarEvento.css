@@ -1,0 +1,115 @@
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Fondo cálido y centrado */
+body {
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor principal */
+div {
+  background-color: #fff8f3;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 1100px;
+  width: 95%;
+  overflow-x: auto;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo de tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezados */
+th {
+  background-color: #ff6b6b;
+  color: white;
+  text-align: left;
+  padding: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Celdas */
+td {
+  padding: 0.9rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+}
+
+/* Filas alternadas */
+tr:nth-child(even) {
+  background-color: #fff0f0;
+}
+
+/* Filas hover */
+tr:hover {
+  background-color: #ffe3e3;
+  transition: background 0.3s ease;
+}
+
+/* Enlaces (acciones) */
+td a {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: white;
+  background-color: #4a90e2;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+td a:hover {
+  background-color: #357abd;
+}
+
+/* Enlace eliminar */
+td a:last-child {
+  background-color: #ff5252;
+}
+
+td a:last-child:hover {
+  background-color: #e04848;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  td a {
+    padding: 4px 8px;
+  }
+}

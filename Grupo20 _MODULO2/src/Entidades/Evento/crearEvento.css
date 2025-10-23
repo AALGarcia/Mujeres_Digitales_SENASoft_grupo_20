@@ -1,0 +1,14 @@
+/* Centrar el contenedor también en pantallas muy anchas */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Separar los botones para que no queden tan pegados */
+td a + a {
+  margin-left: 6px;
+}
+
+/* Suavizar las animaciones */
+* {
+  transition: all 0.2s ease-in-out;
+}
